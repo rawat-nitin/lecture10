@@ -1,9 +1,9 @@
 package edu.kcg.web3.lecture10.controller
 
 import edu.kcg.web3.lecture10.entity.Books
-import edu.kcg.web3.lecture10.repository.CustomerRepository
-import edu.kcg.web3.lecture10.repository.ProductRepository
-import edu.kcg.web3.lecture10.repository.ShopOrderRepository
+import edu.kcg.web3.lecture10.repository.StudentRepository
+import edu.kcg.web3.lecture10.repository.LectureRepository
+import edu.kcg.web3.lecture10.repository.ShopBookRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Controller
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 @RequestMapping("/orders")
 class BookController(
     @Autowired private val shopBookRepository: ShopBookRepository,
-    @Autowired private val productRepository: ProductRepository,
-    @Autowired private val customerRepository: CustomerRepository
+    @Autowired private val lectureRepository: LectureRepository,
+    @Autowired private val customerRepository: StudentRepository
 ) {
 
     @RequestMapping
@@ -39,11 +39,11 @@ class BookController(
         val lectures = lectureRepository.findAll()
         lectures.randomOrNull()?.let {
             shopBook.lectures.add(it)
-            BookPrice += it.bookPrice
+            BookPrice += it.period
         }
         lectures.randomOrNull()?.let {
             shopBook.lectures.add(it)
-            BookPrice += it.bookprice
+            BookPrice += it.period
         }
         shopBook.bookPrice = BookPrice
 

@@ -1,6 +1,7 @@
 package edu.kcg.web3.lecture10.config
 
-import edu.kcg.web3.lecture10.repository.CustomerRepository
+import edu.kcg.web3.lecture10.entity.Student
+import edu.kcg.web3.lecture10.repository.StudentRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.authentication.AuthenticationProvider
 import org.springframework.security.authentication.BadCredentialsException
