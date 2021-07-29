@@ -38,7 +38,7 @@ class LectureController(
     @RequestMapping("/{id}/Books")
     fun productDetail(model: Model, @PathVariable id: String): String {
         model["title"] = "Lectures page"
-        model["books"] = lectureRepository.findByIdOrNull(id.toLongOrNull())?.bookOrders ?: emptySet<Books>()
+        model["books"] = lectureRepository.findByIdOrNull(id.toLongOrNull())?.shopBooks ?: emptySet<Books>()
         return "lectures-books"
     }
 

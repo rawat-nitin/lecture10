@@ -23,7 +23,7 @@ class StudentAuthenticationProvider(
     override fun authenticate(authentication: Authentication): Authentication {
         val email = authentication.name
         val password = authentication.credentials.toString()
-        val customer = studentRepository.findByEmail(email)
+        val student = studentRepository.findByEmail(email)
 
         if (student?.password?.isNotBlank() == true && passwordEncoder.matches(password, student.password)) {
             val authorities = mutableListOf<SimpleGrantedAuthority>()
