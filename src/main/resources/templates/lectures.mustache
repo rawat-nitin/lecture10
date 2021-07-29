@@ -1,0 +1,39 @@
+{{> includes/header}}
+
+<h1>Lectures</h1>
+
+<p><a href="/">Go home</a></p>
+
+<form action="/lectures/new" method="post">
+    <div>
+        <label>Subject Name: <br><input type="text" name="subjectname"/> </label>
+    </div>
+    <div>
+        <label>Period: <br><input type="number" name="period"/> </label>
+    </div>
+    <div style="margin-top: 8px;">
+        <input type="submit" value="Add"/>
+    </div>
+    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+</form>
+
+<hr>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Orders</th>
+    </tr>
+    {{#lectures}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{subjectname}}</td>
+            <td>{{period}}</td>
+            <td><a href="/lectures/{{id}}/books">Show bookss</a></td>
+        </tr>
+    {{/lectures}}
+</table>
+
+{{> includes/footer}}

@@ -1,0 +1,24 @@
+{{> includes/header}}
+
+<h1>Lectures</h1>
+
+<p><a href="/lecturess">Go back</a></p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Period</th>
+        <th>books</th>
+    </tr>
+    {{#books}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{bookPrice}}</td>
+            <td>{{created}} JPY</td>
+            <td>{{student.email}}</td>
+        </tr>
+    {{/books}}
+</table>
+
+{{> includes/footer}}

@@ -1,0 +1,32 @@
+{{> includes/header}}
+
+<h1>Lectures</h1>
+
+<p><a href="/">Go home</a></p>
+<p><a href="/orders/new">Create new random entry</a></p>
+
+<hr>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Total period</th>
+        <th>Created</th>
+        <th>Student</th>
+    </tr>
+    {{#books}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{BookPrice}} JPY</td>
+            <td>{{created}}</td>
+            <td>{{student.email}}</td>
+            <td>
+                {{#lectures}}
+                    {{subjectname}}<br>
+                {{/lectures}}
+            </td>
+        </tr>
+    {{/books}}
+</table>
+
+{{> includes/footer}}
