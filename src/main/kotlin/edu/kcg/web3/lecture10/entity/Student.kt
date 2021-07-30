@@ -4,18 +4,18 @@ import javax.persistence.*
 
 
 @Entity(name = "student")
-class Student {
+class Student : List<Student> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_student")
-    var id: Long? = null
+    val id: Long? = null
 
     @Column(name = "email", nullable = false, unique = true)
     val email: String = ""
 
     @Column(name = "password", nullable = false)
-    val password: String = ""
+    var password: String = ""
 
     @OneToMany(mappedBy = "student", cascade = [CascadeType.ALL])
     val shopBooks: Set<Books> = setOf()
