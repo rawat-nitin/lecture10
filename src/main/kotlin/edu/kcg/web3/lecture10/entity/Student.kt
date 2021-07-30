@@ -4,7 +4,7 @@ import javax.persistence.*
 
 
 @Entity(name = "student")
-class Student : List<Student> {
+class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
