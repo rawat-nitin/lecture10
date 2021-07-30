@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository
 @Repository
 interface StudentRepository : JpaRepository<Student, Long?> {
 
-    @Query("SELECT c FROM customer c WHERE c.email LIKE :email")
+    @Query("SELECT c FROM student c WHERE c.email LIKE :email")
     fun findByEmail(@Param("email") email: String): Student?
 
 }

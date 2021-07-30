@@ -26,20 +26,21 @@ class LectureController(
     }
 
     @RequestMapping("/new")
-    fun newProduct(model: Model, @RequestParam name: String, @RequestParam price: String): String {
+    fun newProduct(model: Model, @RequestParam subjectname: String, @RequestParam period: String): String {
         Lecture().also {
-            it.subjectname = name
-            it.period = name.toLongOrNull() ?: 0
+            it.subjectname = subjectname
+            it.period = period.toLongOrNull() ?: 0
             lectureRepository.save(it)
         }
         return showAllLectures(model)
     }
 
-    @RequestMapping("/{id}/Books")
+    @RequestMapping("/{id}/books")
     fun productDetail(model: Model, @PathVariable id: String): String {
         model["title"] = "Lectures page"
+        model["id"] = id
         model["books"] = lectureRepository.findByIdOrNull(id.toLongOrNull())?.shopBooks ?: emptySet<Books>()
-        return "lectures-books"
+        return "books"
     }
 
 }

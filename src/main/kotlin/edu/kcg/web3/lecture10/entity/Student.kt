@@ -9,7 +9,7 @@ class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_student")
-    val id: Long? = null
+    var id: Long? = null
 
     @Column(name = "email", nullable = false, unique = true)
     val email: String = ""
